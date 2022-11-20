@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap');
+
+:root {
+    --White: hsl(0, 0%, 100%);
+    --LightGrayishViolet: hsl(270, 3%, 87%);
+    --DarkGrayishViolet: hsl(279, 6%, 55%);
+    --VeryDarkViolet: hsl(278, 68%, 11%);
+}
+
+/* mon Reset */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+}
+main {
+    display: grid;
+	grid-template: 1fr 1fr/ 1fr;
+	gap: 0px 0px;
+	justify-items: stretch;
+	align-items: stretch;
+    max-width: 375px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Section 1 */
+main section:nth-of-type(1) {
+    grid-column: 1/2;
+	grid-row: 1/2;
+    min-height: 340px;
+    max-height: 340px;
+}
+main .background .bg-of-cards {
+    background-image: url('./images/bg-main-mobile.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-height: 240px;
+    max-width: 375px;
+}
+main .background .bg-of-cards img {             /* Back Card */
+    position: relative;
+    transform: translate(60px, 30px);
+    width: 300px;
+}
+main .background .bg-of-cards span {            /* CVC 000 */
+    position: absolute;
+    transform: translate(5px, 105px);
+    font-size: 10px;
+    z-index: 1;
+    color: var(--LightGrayishViolet);
+}
+main .background .cards :nth-child(1) {         /* Face Card */
+    position: relative;
+    transform: translate(15px, -117px);
+    width: 300px;
+}
+main .background .cards :nth-child(2) {         /* Logo of the Card */
+    position: relative;
+    transform: translate(35px, -265px);
+    width: 55px;
+}
+
+main .background .cards .card-number > p {      /* 0000 0000 0000 0000 */
+    position: relative;
+    transform: translate(35px, -230px);
+    color: var(--LightGrayishViolet);
+    font-size: 19px;
+    letter-spacing: 2px;
+    width: 250px;
+}
+main .background .cards .cardholder-name > p {  /* Cardholder Name */
+    position: relative;
+    transform: translate(35px, -215px);
+    color: var(--LightGrayishViolet);
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 200px;
+}
+main .background .cards .exp-date > p {         /* Exp. Date */
+    position: relative;
+    transform: translate(245px, -231px);
+    color: var(--LightGrayishViolet);
+    font-size: 12px;
+    width: 40px;
+}
+.background .cards {                            /* Figure containing Face Card */
+    width: 0px;
+    height: 0px;
+    position: relative;
+    top: 0;
+}
+
+/* ___________________________________________________ */
+
+/* Section 2 */
+main section:nth-of-type(2) {
+    grid-column: 1/2;
+	grid-row: 2/3;
+
+    visibility: visible;
+    min-height: 340px;
+    max-height: 340px;
+    margin-top: 0px;
+}
+main section:nth-of-type(2) form {
+    margin: 0px 25px 0px 25px;
+}
+form label:nth-of-type(1), label:nth-of-type(2) {   /* "Cardholder Name" & "Card Number" */
+    font-size: 13.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    width: 150px;
+}
+form label:nth-of-type(1) > p {     /* "Cardholder Name" */
+    margin-top: -10px;
+}
+
+form label:nth-of-type(2) p {       /* "Card Number" */
+    margin-top: 20px;
+    width: 110px;
+}
+form > div {                        /* "Exp. Date" Container */
+    margin-top: 10px;
+}
+form > div span {                   /* "Exp. Date" + "CVC" */
+    font-size: 13.5px;
+    font-weight: 500;
+    text-transform: initial;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    
+}
+form > div span:nth-child(2) {      /* "CVC" */
+    margin-left: 20px;
+}
+form input {
+    border-radius: 10px;
+    min-height: 47px;
+    width: 325px;
+    border: 1px solid var(--LightGrayishViolet);
+    color: #640d92;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: 2px;
+    text-transform: initial;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+form input::placeholder {
+    color: var(--LightGrayishViolet);
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 0px;
+    text-transform: initial;
+}
+form input:focus {
+    border-width: 1px;
+	box-shadow: 0px 0px 5px var(--VeryDarkViolet);
+	outline: none;
+}
+
+
+form label:nth-of-type(3) {
+    display: flex;
+    flex-direction: row;
+    width: 325px;
+    margin-top: 5px;
+}
+form label:nth-of-type(3) #month {
+    width: 70px;
+    margin-right: 10px;
+}
+form label:nth-of-type(3) #year {
+    max-width: 70px;
+    margin-right: 20px;
+}
+form label:nth-of-type(3) #cvc {
+    width: 155px;
+}
+form button {
+    min-width: 325px;
+    min-height: 50px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--VeryDarkViolet);
+    color: var(--White);
+    font-size: 17px;
+    font-weight: bold;
+    margin: 15px 0px 0px 0px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #421945;
+}
+form button:active {
+    background-color: var(--White);
+    color: var(--VeryDarkViolet);
+    border: 3px solid #421945;
+}
+form div:nth-of-type(1) {
+    width: 210px;
+    height: 15px;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Alert Messages */   
+section:nth-of-type(2) form .alert {        /* All my P with class ".alert" */
+    color: red;
+    text-transform: initial;
+    font-weight: 500;
+    font-family: sans-serif;
+    font-size: 12px;
+    margin: 0 auto;
+}
+section:nth-of-type(2) form #one {          /* "Wrong format, numbers only" */
+    display: none; 
+    width: 250px;
+}
+section:nth-of-type(2) form #two-month {          /* "Can't be blank" */
+    visibility: hidden; 
+    margin-top: 5px;
+    margin-left: 0px;
+}
+section:nth-of-type(2) form #two-year {          /* "Can't be blank" */
+    visibility: hidden; 
+    margin-top: -14px;
+    margin-left: 82px;
+}
+section:nth-of-type(2) form #three {        /* "Can't be blank" n°2 */
+    visibility: hidden; 
+    margin-top: -14px;
+    margin-left: 173px;
+}
+
+/* ___________________________________________________ */
+
+/* Section 3 ("Thank You!") */
+main section:nth-of-type(3) {
+    grid-column: 1/2;
+	grid-row: 2/3;
+
+    visibility: hidden;
+    text-align: center;
+}
+main section:nth-of-type(3) img {       /* Logo Complete */
+    margin-top: -10px;
+}
+main section:nth-of-type(3) h3 {        /* Thank You! */
+    font-size: 27px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.5;
+    letter-spacing: 5px;
+
+    margin: 25px 0px 10px 0px;
+}
+main section:nth-of-type(3) p {
+    color: var(--DarkGrayishViolet);
+    font-size: 17px;
+    line-height: 1.5;
+}
+main section:nth-of-type(3) button {
+    min-width: 325px;
+    min-height: 50px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--VeryDarkViolet);
+    color: var(--White);
+    font-size: 17px;
+    font-weight: bold;
+    margin: 55px 0px 10px 0px;
+    letter-spacing: 0.5px;
+}
+main section:nth-of-type(3) button:hover {
+    background-color: #421945;
+}
+main section:nth-of-type(3) button:active {
+    background-color: var(--White);
+    color: var(--VeryDarkViolet);
+    border: 3px solid #421945;
+}
+
+/* Footer */
+.attribution { 
+    margin-top: 40px;
+    visibility: visible;
+    font-size: 11px; text-align: center;
+}
+.attribution a { color: hsl(228, 45%, 44%);
+}
+
+
+@media screen and (min-width: 1050px) {
+    main {
+        grid-template: 1fr 1fr / 1fr 1fr 1fr;
+        max-width: 1050px;
+        height: auto;
+        margin-top: 100px;
+    }
+    main section:nth-of-type(1) {
+        grid-column: 1/2;
+	    grid-row: 1/3;
+        
+        max-height: 700px;
+    }
+    main .background .bg-of-cards {
+        background-image: url('./images/bg-main-desktop.webp');
+    
+        min-height: 700px;
+        width: 375px;
+    }
+    main .background .bg-of-cards img {             /* Back Card */
+        position: relative;
+        transform: translate(195px, 365px);
+        width: 350px;
+    }
+    main .background .bg-of-cards span {            /* CVC 000 */
+        transform: translate(130px, 452px);
+        font-size: 12px;
+    }
+    main .background .cards :nth-child(1) {
+        transform: translate(120px, -560px);        /* Face Card */
+        width: 350px;
+    }
+    main .background .cards :nth-child(2) {         /* Logo of the Card */
+        transform: translate(140px, -735px);
+        width: 60px;
+    }
+    
+    main .background .cards .card-number > p {      /* 0000 0000 0000 0000 */
+        transform: translate(140px, -685px);
+        font-size: 20px;
+        letter-spacing: 2px;
+        width: 260px;
+    }
+    main .background .cards .cardholder-name > p {  /* Cardholder Name */
+        transform: translate(140px, -660px);
+        font-size: 12px;
+    }
+    main .background .cards .exp-date > p {         /* Exp. Date */
+        transform: translate(400px, -675px);
+        font-size: 12px;
+    }
+    
+
+    main section:nth-of-type(2) {
+        grid-column: 2/4;
+	    grid-row: 1/3;
+        max-height: 700px;
+
+        visibility: visible;
+    }
+
+    main section:nth-of-type(2) form {
+        max-height: 350px;
+        min-height: 350px;
+        margin: 200px 0px 0px 260px;
+    }
+    form label:nth-of-type(2) input {           /* "Card Number" input */
+        margin-bottom: 40px;
+    }
+
+    form div:nth-of-type(1) {                   
+        margin-top: -35px;
+        margin-bottom: 30px;
+        font-size: 10px;
+    }
+   
+    main section:nth-of-type(2) form .alert {   /* "Wrong format, numbers only" */
+        width: 200px;
+    }
+
+    form > div {                                /* "Exp. Date" Container */
+        margin-top: -20px;
+        max-width: 352px;
+    }
+    form > div:nth-of-type(2) span {            /* "Exp. Date" */
+        margin-top: 50px;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        line-height: 1.5;
+    }
+
+    form button {
+        font-size: 20px;
+        margin-top: 15px;
+        padding-top: 3px;
+    }
+
+    main section:nth-of-type(3) {
+        grid-column: 2/4;
+	    grid-row: 1/3;
+
+        visibility: hidden;
+        min-height: 700px;
+        padding-top: 220px;
+        padding-left: 150px;
+    }
+    main section:nth-of-type(3) button {
+        font-size: 20px;
+        padding-top: 2.5px;
+        margin-top: 30px;
+    }
+}
+
+
+
+@media screen and (min-width: 1440px) {
+    main {
+        max-width: 100%;
+        min-height: 90vh;
+        margin-top: 0px;
+    }
+    main section:nth-of-type(1) {
+        min-height: 100%;
+        width: calc(100% / 3);
+    }
+    main .background .bg-of-cards {
+        background-image: url('./images/bg-main-desktop.webp');
+    
+        min-height: 100%;
+        min-width: 480px;
+    }
+
+
+    main section:nth-of-type(2) {
+        grid-column: 2/4;
+	    grid-row: 1/3;
+        min-height: 100%;
+        min-width: 960px;
+        visibility: visible;
+    }
+}

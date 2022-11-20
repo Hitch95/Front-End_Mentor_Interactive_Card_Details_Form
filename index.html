@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Frontend Mentor | Interactive card details form</title>
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <!-- Card Representation -->
+      <section class="background">
+        <figure class="bg-of-cards">
+          <img srcset="./images/bg-card-back.webp" alt="" />
+          <span id="cvc-log">000</span>
+        </figure>
+        <figure class="cards">
+          <img srcset="./images/bg-card-front.webp" alt="" />
+          <img srcset="./images/card-logo.svg" alt="" />
+          <figcaption class="card-number">
+            <p id="number-log">0000 0000 0000 0000</p>
+          </figcaption>
+          <figcaption class="cardholder-name">
+            <p id="name-log">Jane Appleseed</p>
+          </figcaption>
+          <figcaption class="exp-date">
+            <p id="exp-date-log">
+              <span id="month-log">00</span>/<span id="year-log">00</span>
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- Bank Card Form -->
+      <section id="section-input">
+        <form>
+          <label for="name">
+            <p>Cardholder Name</p>
+            <input
+              type="text" pattern="[a-z]{1,15}" required
+              title="Name section should only contain letters."
+              placeholder="e.g. Jane Appleseed"
+              id="name"
+            />
+          </label>
+
+          <label for="card-number">
+            <p>Card Number</p>
+            <input
+              placeholder="e.g. 1234 5678 9123 0000" id="card-number" required
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              minlength="16"
+              maxlength="16"
+            />
+          </label>
+          <div>
+            <p class="alert" id="one">Can't be blank</p>
+          </div>
+          <div>
+            <span>EXP. DATE (MM/YY)</span>
+            <span>CVC</span>
+          </div>
+          <label for="month">
+            <input
+              type="number" placeholder="MM" id="month" required
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              minlength="2"
+              maxlength="2"
+            />
+
+            <input
+              type="number" placeholder="YY" id="year" required
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              minlength="2"
+              maxlength="2"
+            />
+
+            <input
+              type="number" placeholder="e.g. 123" id="cvc" required
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3"
+            />
+          </label>
+          <p class="alert" id="two-month">Can't be blank</p>
+          <p class="alert" id="two-year">Can't be blank</p>
+          <p class="alert" id="three">Can't be blank</p>
+          <button type="submit" id="confirm-button">Confirm</button>
+        </form>
+      </section>
+
+      <!-- Completed state start -->
+      <section id="section-thank-you">
+        <img src="./images/icon-complete.svg" alt="" />
+        <h3>Thank you!</h3>
+        <p>We've added your card details</p>
+        <button type="reset" id="continue-button">Continue</button>
+      </section>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Hitch95</a>.
+    </footer>
+  </body>
+</html>
