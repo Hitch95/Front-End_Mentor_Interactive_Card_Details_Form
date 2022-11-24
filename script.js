@@ -26,8 +26,8 @@ const sectionThankYou = document.getElementById('section-thank-you');
 
 // Alert Message //
 const alertMsgOne = document.getElementById('one');
-const alertMsgTwoMM = document.getElementById('two-month');
-const alertMsgTwoYY = document.getElementById('two-year');
+const alertMsgTwoMM = document.getElementById('twoMonth');
+const alertMsgTwoYY = document.getElementById('twoYear');
 const alertMsgThree = document.getElementById('three');
 
 
@@ -54,56 +54,73 @@ function format(s) {
 function handleSubmit(e) {
     e.preventDefault();
 
+    // Cardholder Name //
+    if ((nameInput.value.split(" ").length === 2) && (isNaN(nameInput.value))) {
+        nameInput.classList.remove("wrong-input");
+    } else {
+        nameInput.classList.add("wrong-input");
+        nameInput.value = null;
+    }
+
     // Card Number Part. //
     if (numberInput.value.length <= 0) {
-        alertMsgOne.style.display = "contents";
-        alertMsgOne.innerHTML = "<span style='display:contents'>Can't be blank</span>";
+        alertMsgOne.style.visibility = "visible";
+        numberInput.classList.add("wrong-input");
     } else if (isNaN(numberInput.value)) {
-        alertMsgOne.style.display = "contents";
-        alertMsgOne.innerHTML = "<span style='display:contents'>Wrong format, numbers only</span>";
-    } else if (numberInput.value.length > 0 && !isNaN(numberInput.value)) {
-        alertMsgOne.style.display = "none";
-        alertMsgOne.innerHTML = "<span style='display:contents'></span>";
+        alertMsgOne.style.visibility = "visible";
+        alertMsgOne.innerHTML = "Wrong format, numbers only";
+        numberInput.classList.add("wrong-input");
+    } else {
+        alertMsgOne.style.visibility = "hidden";
+        numberInput.classList.remove("wrong-input");
     }
   
 
     // Exp. Date => Month Part. //
-    if (!monthInput.value.length > 0) {
+    if (monthInput.value.length < 2) {
         alertMsgTwoMM.style.visibility = "visible";
+        monthInput.classList.add("wrong-input");
     } else if (monthInput.value < 0 || monthInput.value > 12) {
-            alertMsgTwoMM.style.visibility = "visible";
-            alertMsgTwoMM.innerHTML = "<p style='visibility:visible'>01 to 12 only</p>";
+            alertMsgTwoMM.innerHTML = "01 to 12 only";
+            monthInput.classList.add("wrong-input");
     } else {
         alertMsgTwoMM.style.visibility = "hidden";
+        monthInput.classList.remove("wrong-input");
     }
 
     // Exp. Date => Year Part.
     if (yearInput.value.length < 2) {
         alertMsgTwoYY.style.visibility = "visible";
+        yearInput.classList.add("wrong-input");
     } else if (yearInput.value <= 22) {
         alertMsgTwoYY.style.visibility = "visible";
-        alertMsgTwoYY.innerHTML = "<p style='visibility:visible'>More than 22</p>";
+        alertMsgTwoYY.innerHTML = "More than 22";
+        yearInput.classList.add("wrong-input");
     } else {
         alertMsgTwoYY.style.visibility = "hidden";
+        yearInput.classList.remove("wrong-input");
     }
 
     // CVC Number //
-    if (CvcInput.value.length !== 3 || isNaN(CvcInput.value)) {
+    if (CvcInput.value.length < 3) {
         alertMsgThree.style.visibility = "visible";
+        CvcInput.classList.add("wrong-input");
     } else {
         alertMsgThree.style.visibility = "hidden";
+        CvcInput.classList.remove("wrong-input");
     }
 
     // All conditions for Submit Button work //
-    if (nameInput.value || monthInput.value || yearInput.value || CvcInput.value) {
-        sectionForm.style.visibility = "visible";
-        sectionThankYou.style.visibility = "hidden";
-    }
-    else if (nameInput.value && monthInput.value && yearInput.value && CvcInput.value) {
+    if (nameInput.value && monthInput.value && yearInput.value && CvcInput.value) {
         sectionForm.style.visibility = "hidden";
         sectionThankYou.style.visibility = "visible";
     }
+    else if (nameInput.value || monthInput.value || yearInput.value || CvcInput.value) {
+        sectionForm.style.visibility = "visible";
+        sectionThankYou.style.visibility = "hidden";
+    }
 }
+
 
 numberInput.addEventListener('keyup', setCardNumber);
 nameInput.addEventListener('keyup', setCardName);

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    >
+    <link rel="stylesheet" href="./style.css">
     <title>Frontend Mentor | Interactive card details form</title>
     <script src="./script.js" defer></script>
   </head>
@@ -20,23 +20,23 @@
       <!-- Card Representation -->
       <section class="background">
         <figure class="bg-of-cards">
-          <img srcset="./images/bg-card-back.webp" alt="" />
+          <img src="./images/bg-card-back.webp" alt="bank card from back" />
           <span id="cvc-log">000</span>
         </figure>
         <figure class="cards">
-          <img srcset="./images/bg-card-front.webp" alt="" />
-          <img srcset="./images/card-logo.svg" alt="" />
-          <figcaption class="card-number">
-            <p id="number-log">0000 0000 0000 0000</p>
-          </figcaption>
-          <figcaption class="cardholder-name">
+          <img src="./images/bg-card-front.webp" alt="bank card from front" />
+          <img src="./images/card-logo.svg" alt="bank card logo" />
+          <div class="card-number">
+            <h4 id="number-log">0000 0000 0000 0000</h4>
+          </div>
+          <div class="cardholder-name">
             <p id="name-log">Jane Appleseed</p>
-          </figcaption>
-          <figcaption class="exp-date">
+          </div>
+          <div class="exp-date">
             <p id="exp-date-log">
               <span id="month-log">00</span>/<span id="year-log">00</span>
             </p>
-          </figcaption>
+          </div>
         </figure>
       </section>
 
@@ -48,6 +48,7 @@
             <input
               type="text" pattern="[a-z]{1,15}" required
               title="Name section should only contain letters."
+              onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
               placeholder="e.g. Jane Appleseed"
               id="name"
             />
@@ -69,7 +70,7 @@
             <span>EXP. DATE (MM/YY)</span>
             <span>CVC</span>
           </div>
-          <label for="month">
+          <label for="month year cvc">
             <input
               type="number" placeholder="MM" id="month" required
               oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
@@ -89,8 +90,8 @@
               oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3"
             />
           </label>
-          <p class="alert" id="two-month">Can't be blank</p>
-          <p class="alert" id="two-year">Can't be blank</p>
+          <p class="alert" id="twoMonth">Can't be blank</p>
+          <p class="alert" id="twoYear">Can't be blank</p>
           <p class="alert" id="three">Can't be blank</p>
           <button type="submit" id="confirm-button">Confirm</button>
         </form>
