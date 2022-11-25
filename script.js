@@ -77,10 +77,10 @@ function handleSubmit(e) {
   
 
     // Exp. Date => Month Part. //
-    if (monthInput.value.length < 2) {
+    if (monthInput.value.length < 1) {
         alertMsgTwoMM.style.visibility = "visible";
         monthInput.classList.add("wrong-input");
-    } else if (monthInput.value < 0 || monthInput.value > 12) {
+    } else if ((monthInput.value.length >= 1) && (monthInput.value <= 0 || monthInput.value > 12)) {
             alertMsgTwoMM.innerHTML = "01 to 12 only";
             monthInput.classList.add("wrong-input");
     } else {
@@ -89,10 +89,10 @@ function handleSubmit(e) {
     }
 
     // Exp. Date => Year Part.
-    if (yearInput.value.length < 2) {
+    if (yearInput.value.length < 1) {
         alertMsgTwoYY.style.visibility = "visible";
         yearInput.classList.add("wrong-input");
-    } else if (yearInput.value <= 22) {
+    } else if ((yearInput.value.length >= 1) && (yearInput.value >= 0 && yearInput.value <= 22)) {
         alertMsgTwoYY.style.visibility = "visible";
         alertMsgTwoYY.innerHTML = "More than 22";
         yearInput.classList.add("wrong-input");
