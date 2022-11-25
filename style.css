@@ -61,6 +61,13 @@ main .background .bg-of-cards span {            /* CVC 000 */
     z-index: 1;
     color: var(--LightGrayishViolet);
 }
+main .background .cards {                       /* Figure containing Face Card */
+    width: 0px;
+    height: 0px;
+    position: relative;
+    top: 0;
+}
+
 main .background .cards :nth-child(1) {         /* Face Card */
     position: relative;
     transform: translate(15px, -117px);
@@ -96,12 +103,6 @@ main .background .cards .exp-date > p {         /* Exp. Date */
     font-size: 12px;
     width: 40px;
 }
-.background .cards {                            /* Figure containing Face Card */
-    width: 0px;
-    height: 0px;
-    position: relative;
-    top: 0;
-}
 
 /* ___________________________________________________ */
 
@@ -114,6 +115,7 @@ main section:nth-of-type(2) {
     min-height: 340px;
     max-height: 340px;
     margin-top: 0px;
+    background-color: var(--White);
 }
 main section:nth-of-type(2) form {
     margin: 0px 25px 0px 25px;
@@ -267,6 +269,7 @@ main section:nth-of-type(3) {
 
     visibility: hidden;
     text-align: center;
+    background-color: var(--White);
 }
 main section:nth-of-type(3) img {           /* Logo Complete */
     margin-top: -10px;
@@ -277,7 +280,6 @@ main section:nth-of-type(3) h3 {            /* Thank You! */
     text-transform: uppercase;
     line-height: 1.5;
     letter-spacing: 5px;
-
     margin: 25px 0px 10px 0px;
 }
 main section:nth-of-type(3) p {
@@ -312,12 +314,19 @@ main section:nth-of-type(3) button:focus {
 /* Footer */
 .attribution { 
     margin-top: 40px;
-    visibility: visible;
-    font-size: 11px; text-align: center;
+    font-size: 11px; 
+    text-align: center;
+    color: var(--DarkGrayishViolet);
 }
-.attribution a { color: hsl(228, 45%, 44%);
+.attribution a { 
+    text-decoration: none;
+    color: #640d92;
+    font-weight: bold;
 }
-
+.attribution a:hover {
+    font-weight: 500;
+    text-decoration: underline;
+}
 
 @media screen and (min-width: 1050px) {
     main {
